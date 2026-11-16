@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayanium (DYN) | Official BEP-20 Ecosystem, Live Market & Whitepaper</title>
+    <meta name="description" content="Official portal of Dayanium (DYN) on BNB Smart Chain. Founded by Asif Redoan. Trade on PancakeSwap, track live DexScreener charts, mine via Telegram, and read the official Whitepaper.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #060D1A;
+            background-image: 
+                radial-gradient(circle at 18% 12%, rgba(45, 212, 191, 0.09) 0%, transparent 45%),
+                radial-gradient(circle at 82% 28%, rgba(56, 189, 248, 0.07) 0%, transparent 50%),
+                radial-gradient(circle at 50% 85%, rgba(20, 184, 166, 0.06) 0%, transparent 55%);
+            color: #F1F5F9;
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card {
+            background: rgba(11, 22, 40, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(45, 212, 191, 0.22);
+            box-shadow: 0 12px 32px rgba(2, 6, 23, 0.65);
+        }
+        .glass-parrot {
+            background: linear-gradient(145deg, rgba(13, 42, 56, 0.55), rgba(10, 20, 38, 0.95));
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(94, 234, 212, 0.30);
+            box-shadow: 0 14px 38px rgba(20, 184, 166, 0.12);
+        }
+        .glow-btn {
+            box-shadow: 0 4px 22px rgba(45, 212, 191, 0.30);
+        }
+        @keyframes orbitPulse {
+            0%, 100% { opacity: 0.78; }
+            50% { opacity: 1; }
+        }
+        .logo-glow {
+            animation: orbitPulse 3.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-teal-400 selection:text-slate-950">
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#0B1628]/95 border border-teal-400/50 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 translate-y-8 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-teal-400 text-lg"></i>
+        <p id="toast-msg" class="text-sm font-medium text-slate-100">Copied to clipboard!</p>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- TOP STICKY NAVIGATION BAR                                             -->
+    <!-- ===================================================================== -->
+    <header class="sticky top-0 z-40 bg-[#060D1A]/90 backdrop-blur-xl border-b border-teal-500/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Official Dayanium 3D Geometric 'D' Logo with Glowing Energy Swirl -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-teal-400/40 via-slate-700/50 to-cyan-500/30 p-[1.5px] shadow-lg shadow-teal-500/20 shrink-0">
+                        <div class="w-full h-full bg-[#0A1322] rounded-[14.5px] flex items-center justify-center relative overflow-hidden">
+                            <svg width="36" height="36" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-glow">
+                                <defs>
+                                    <linearGradient id="metalBody" x1="25" y1="20" x2="95" y2="100" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#334155"/>
+                                        <stop offset="50%" stop-color="#1E293B"/>
+                                        <stop offset="100%" stop-color="#0F172A"/>
+                                    </linearGradient>
+                                    <linearGradient id="tealEdge" x1="20" y1="15" x2="100" y2="105" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%" stop-color="#99F6E4"/>
+                                        <stop offset="50%" stop-color="#2DD4BF"/>
+                                        <stop offset="100%" stop-color="#0D9488"/>
+                                    </linearGradient>
+                                    <filter id="neonSwirl" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                                        <feMerge>
+                                            <feMergeNode in="blur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                <path d="M32 20H62C84.0914 20 102 37.9086 102 60C102 82.0914 84.0914 100 62 100H32V20Z" fill="url(#metalBody)" stroke="url(#tealEdge)" stroke-width="3.5" stroke-linejoin="round"/>
+                                <path d="M46 34H61C75.3594 34 87 45.6406 87 60C87 74.3594 75.3594 86 61 86H46V34Z" fill="#0A1322" stroke="url(#tealEdge)" stroke-width="2.5" stroke-linejoin="round"/>
+                                <line x1="32" y1="20" x2="46" y2="34" stroke="#5EEAD4" stroke-width="2"/>
+                                <line x1="32" y1="100" x2="46" y2="86" stroke="#2DD4BF" stroke-width="2"/>
+                                <line x1="87" y1="60" x2="102" y2="60" stroke="#2DD4BF" stroke-width="2"/>
+                                <path d="M16 74C32 62 68 62 104 38" stroke="#67E8F9" stroke-width="3" stroke-linecap="round" filter="url(#neonSwirl)"/>
+                                <path d="M22 84C48 76 80 68 106 48" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+                                <path d="M65 16C92 18 112 38 106 66" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" filter="url(#neonSwirl)"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-display font-bold text-lg sm:text-xl text-white tracking-wider">DAYANIUM <span class="text-teal-300 text-xs sm:text-sm">DYN</span></span>
+                        <span class="block text-[9px] sm:text-[10px] text-slate-400 font-semibold tracking-widest uppercase">BNB Smart Chain • BEP-20</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-slate-300">
+                    <a href="#market" class="hover:text-teal-300 transition">Live Market</a>
+                    <a href="#mining" class="hover:text-teal-300 transition">Telegram Miner</a>
+                    <a href="#whitepaper" class="hover:text-teal-300 transition">Whitepaper</a>
+                    <a href="#roadmap" class="hover:text-teal-300 transition">Roadmap</a>
+                    <a href="#founder" class="hover:text-teal-300 transition">Founder & Verification</a>
+                </nav>
+
+                <!-- Action CTA -->
+                <div class="flex items-center gap-2.5">
+                    <a href="#whitepaper" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0D1B33] hover:bg-[#132647] border border-teal-400/25 text-slate-200 text-sm font-semibold transition">
+                        <i class="fa-solid fa-file-lines text-teal-400"></i> Whitepaper
+                    </a>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xdac720922a531574daC6D990e2cd1ff97883A294" target="_blank" rel="noopener noreferrer" class="px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 hover:opacity-95 text-slate-950 font-bold text-xs sm:text-sm transition glow-btn">
+                        Buy DYN
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- HERO SECTION                                                          -->
+    <!-- ===================================================================== -->
+    <section class="pt-14 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-400/35 text-teal-300 text-xs font-bold mb-6 tracking-wide">
+                <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+                VERIFIED BEP-20 CONTRACT • PANCAKESWAP LIVE
+            </div>
+
+            <h1 class="text-3xl sm:text-6xl font-bold tracking-tight text-white mb-5 leading-tight">
+                Transparent Decentralized <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 via-teal-400 to-cyan-300">Mining & Digital Economy</span>
+            </h1>
+
+            <p class="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+                Dayanium (DYN) unites multi-phase Telegram community mining through mid-2027 with transparent, controlled liquidity growth on BNB Smart Chain. Built with full founder accountability and open on-chain verification.
+            </p>
+
+            <!-- Primary Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0xdac720922a531574daC6D990e2cd1ff97883A294" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gradient-to-r from-teal-400 to-cyan-400 text-slate-950 font-bold text-sm sm:text-base transition flex items-center justify-center gap-2.5 glow-btn">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i> Trade on PancakeSwap
+                </a>
+                <a href="https://t.me/DayaniumOfficialBot/mine" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl glass-card hover:border-teal-400/70 text-white font-semibold text-sm sm:text-base transition flex items-center justify-center gap-2.5">
+                    <i class="fa-brands fa-telegram text-teal-400 text-xl"></i> Launch Telegram Miner
+                </a>
+                <a href="https://dexscreener.com/bsc/0x38474d63c1e514c013d450a0eb08154dc30cbc97" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl glass-card hover:border-cyan-400/70 text-white font-semibold text-sm sm:text-base transition flex items-center justify-center gap-2.5">
+                    <i class="fa-solid fa-chart-line text-cyan-400"></i> DexScreener Live Chart
+                </a>
+            </div>
+
+            <!-- Official Contract Address Copy Card -->
+            <div class="max-w-2xl mx-auto glass-card rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-left w-full sm:w-auto">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[11px] font-bold text-teal-300 uppercase tracking-wider">Official BEP-20 Smart Contract</span>
+                        <a href="https://bscscan.com/token/0xdac720922a531574daC6D990e2cd1ff97883A294" target="_blank" rel="noopener noreferrer" class="text-[11px] text-slate-300 hover:text-teal-300 hover:underline">
+                            (BscScan <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>)
+                        </a>
+                    </div>
+                    <code id="contract-addr" class="text-slate-100 text-xs sm:text-sm font-mono break-all select-all">0xdac720922a531574daC6D990e2cd1ff97883A294</code>
+                </div>
+                <button onclick="copyText('0xdac720922a531574daC6D990e2cd1ff97883A294', 'Contract address copied!')" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-teal-500/15 hover:bg-teal-500/25 border border-teal-400/45 text-teal-300 font-bold text-xs transition flex items-center justify-center gap-2 shrink-0">
+                    <i class="fa-regular fa-copy"></i> Copy Contract
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- CLEAN LIVE MARKET & DEXSCREENER LINKS SECTION                         -->
+    <!-- ===================================================================== -->
+    <section id="market" class="py-14 px-4 sm:px-6 lg:px-8 border-t border-teal-500/15">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-teal-400 font-bold text-xs uppercase tracking-widest">Real-Time DEX Analytics</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-2">PancakeSwap Live Market & Chart</h2>
+                <p class="text-slate-300 text-sm mt-2">Real-time DYN/WBNB statistics synced directly from BNB Smart Chain.</p>
+            </div>
+
+            <!-- 4 Clean Market Stat Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="glass-card p-5 rounded-2xl">
+                    <span class="text-xs text-slate-400 block">Trading Pair</span>
+                    <span class="font-display text-lg sm:text-2xl font-bold text-white mt-1 block">DYN / WBNB</span>
+                </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <span class="text-xs text-slate-400 block">Live Price (USD)</span>
+                    <span id="live-price-usd" class="font-display text-lg sm:text-2xl font-bold text-teal-300 mt-1 block">Syncing...</span>
+                </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <span class="text-xs text-slate-400 block">Market Cap / FDV</span>
+                    <span id="live-mcap" class="font-display text-lg sm:text-2xl font-bold text-cyan-300 mt-1 block">$12,150+</span>
+                </div>
+                <div class="glass-card p-5 rounded-2xl">
+                    <span class="text-xs text-slate-400 block">DEX Status</span>
+                    <span class="font-display text-lg sm:text-2xl font-bold text-teal-300 mt-1 block">Active & Live</span>
+                </div>
+            </div>
+
+            <!-- Clean Direct Action Card for DexScreener & PancakeSwap -->
+            <div class="glass-parrot rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold text-teal-300 uppercase tracking-wider mb-1">
+                        <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span> PancakeSwap v2 Liquidity Pool
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white">Inspect Live Candlestick Chart & Orderbook</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-1.5">
+                        Pair Address: <code class="text-teal-300 font-mono break-all">0x38474d63c1e514c013d450a0eb08154dc30cbc97</code>
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+                    <a href="https://dexscreener.com/bsc/0x38474d63c1e514c013d450a0eb08154dc30cbc97" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 text-slate-950 font-bold text-sm text-center transition glow-btn flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-chart-candlestick"></i> Open DexScreener Chart
+                    </a>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0xdac720922a531574daC6D990e2cd1ff97883A294" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-[#071122] hover:bg-[#0D1E3B] border border-teal-400/40 text-white font-semibold text-sm text-center transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-arrow-right-arrow-left text-teal-400"></i> Swap on PancakeSwap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- TELEGRAM MINING APP & MULTI-PHASE RELEASE SECTION                     -->
+    <!-- ===================================================================== -->
+    <section id="mining" class="py-14 px-4 sm:px-6 lg:px-8 border-t border-teal-500/15">
+        <div class="max-w-6xl mx-auto">
+            <div class="glass-card rounded-3xl p-6 sm:p-12 grid lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-400/15 border border-teal-400/35 text-teal-300 text-xs font-bold mb-4">
+                        <i class="fa-brands fa-telegram"></i> MULTI-PHASE MINING THROUGH MID-2027
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-bold text-white mb-4">Dayanium Telegram Miner & Phased Rollout</h2>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-6">
+                        Currently in <strong class="text-teal-300">Mining Phase 1</strong>, our official Telegram Mini App (<strong class="text-cyan-300">@DayaniumOfficialBot</strong>) will continue across <strong class="text-teal-300">three structured phases (Phase 1, Phase 2 & Phase 3) until mid-2027</strong>, accompanied by major community events, leaderboard tournaments, and controlled market releases.
+                    </p>
+
+                    <div class="space-y-3 mb-7 text-sm text-slate-200">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+                            <span><strong>3 Mining Phases Until Mid-2027:</strong> Phase 1 is live now, followed by Phase 2 and Phase 3 with major reward events along the way.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+                            <span><strong>Invite & Earn Milestone:</strong> Earn <strong>+500 DYN</strong> per friend (1 to 10) plus an extra <strong>+3,000 DYN</strong> milestone bonus at 10 friends.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+                            <span><strong>Verified BEP-20 Withdrawals:</strong> Gradual, controlled supply release to protect PancakeSwap liquidity (Min 5,000 DYN).</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://t.me/DayaniumOfficialBot/mine" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 text-slate-950 font-bold text-sm text-center transition flex items-center justify-center gap-2 glow-btn">
+                            <i class="fa-solid fa-rocket"></i> Open Mining Mini App
+                        </a>
+                        <a href="https://t.me/Dayaniumofficial" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-[#071122] border border-teal-400/30 hover:border-teal-300 text-white font-semibold text-sm text-center transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-telegram text-teal-400"></i> Join @Dayaniumofficial
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mini App Preview Card -->
+                <div class="bg-[#071020] border border-teal-400/30 rounded-3xl p-6 shadow-2xl">
+                    <div class="flex items-center justify-between pb-4 border-b border-teal-500/20">
+                        <div class="flex items-center gap-3">
+                            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-teal-400/20 to-cyan-500/20 border border-teal-400/40 text-teal-300 flex items-center justify-center font-display font-bold text-xl">D</div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">DAYANIUM MINER</h3>
+                                <p class="text-xs text-teal-300">@DayaniumOfficialBot</p>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-teal-400/15 text-teal-300 text-xs font-bold">Phase 1 Active</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 my-5">
+                        <div class="bg-[#0C1930] p-4 rounded-2xl border border-teal-500/20 text-center">
+                            <span class="text-[11px] text-slate-300 uppercase block">Per Friend Reward</span>
+                            <span class="font-display text-xl sm:text-2xl font-bold text-teal-300 mt-1 block">+500 DYN</span>
+                        </div>
+                        <div class="bg-[#0C1930] p-4 rounded-2xl border border-teal-500/20 text-center">
+                            <span class="text-[11px] text-slate-300 uppercase block">10-Friend Bonus</span>
+                            <span class="font-display text-xl sm:text-2xl font-bold text-cyan-300 mt-1 block">+3,000 DYN</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#0C1930]/80 rounded-2xl p-4 border border-teal-500/20 space-y-2.5 text-xs text-slate-200">
+                        <div class="flex justify-between gap-2">
+                            <span class="text-slate-400">Mining Timeline:</span>
+                            <span class="font-bold text-teal-300 text-right">3 Phases (Until Mid-2027)</span>
+                        </div>
+                        <div class="flex justify-between gap-2">
+                            <span class="text-slate-400">24h Cloud Mining Rate:</span>
+                            <span class="font-bold text-cyan-300 text-right">500 DYN / Day</span>
+                        </div>
+                        <div class="flex justify-between gap-2">
+                            <span class="text-slate-400">Major Event Pool:</span>
+                            <span class="font-bold text-teal-300 text-right">1,000,000 DYN Giveaway</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- OFFICIAL WHITEPAPER & STRATEGIC ROADMAP SECTION                       -->
+    <!-- ===================================================================== -->
+    <section id="whitepaper" class="py-14 px-4 sm:px-6 lg:px-8 border-t border-teal-500/15">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-teal-400 font-bold text-xs uppercase tracking-widest">Official Technical & Economic Blueprint</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-2">Dayanium (DYN) Whitepaper v1.0</h2>
+                <p class="text-slate-300 text-sm mt-2">Complete project architecture, multi-phase mining plan until mid-2027, and legal transparency.</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-10 space-y-8 border border-teal-400/20">
+                
+                <!-- 1. Executive Summary -->
+                <div class="border-b border-teal-500/15 pb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-teal-300 mb-3">1. Executive Summary</h3>
+                    <p class="text-slate-200 text-sm leading-relaxed">
+                        <strong>Dayanium (DYN)</strong> is a decentralized utility and community-driven digital asset deployed on the <strong>BNB Smart Chain (BEP-20)</strong> under the verified smart contract <code class="text-cyan-300 font-mono break-all">0xdac720922a531574daC6D990e2cd1ff97883A294</code>. Founded by <strong>Asif Redoan</strong>, Dayanium bridges Web2 social accessibility with Web3 decentralized finance (DeFi) by running a 3-phase Telegram mining ecosystem through mid-2027 alongside live, verifiable market liquidity on PancakeSwap.
+                    </p>
+                </div>
+
+                <!-- 2. Problem & Solution -->
+                <div class="border-b border-teal-500/15 pb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-teal-300 mb-3">2. Problem Statement & Dayanium Solution</h3>
+                    <div class="grid md:grid-cols-2 gap-5 text-sm">
+                        <div class="bg-[#071122] p-5 rounded-2xl border border-rose-500/25">
+                            <h4 class="font-bold text-rose-400 mb-2"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Market Challenges</h4>
+                            <p class="text-slate-300 leading-relaxed">
+                                Many emerging tokens suffer from anonymous ownership, unverified tokenomics, and uncontrolled airdrop dumps that erode investor confidence and destabilize decentralized liquidity pools.
+                            </p>
+                        </div>
+                        <div class="bg-[#071122] p-5 rounded-2xl border border-teal-400/25">
+                            <h4 class="font-bold text-teal-300 mb-2"><i class="fa-solid fa-shield-check mr-1.5"></i> The Dayanium Approach</h4>
+                            <p class="text-slate-300 leading-relaxed">
+                                Dayanium enforces full founder transparency (public LinkedIn & corporate communication), verified BscScan contract metadata, and a <strong>gradual multi-phase token release</strong> model through mid-2027 to protect market stability.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Tokenomics & Phased Distribution -->
+                <div class="border-b border-teal-500/15 pb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-teal-300 mb-3">3. Token Specifications & Phased Supply Release</h3>
+                    <div class="grid sm:grid-cols-3 gap-4 text-sm mb-4">
+                        <div class="bg-[#071122] p-4 rounded-xl border border-teal-500/20">
+                            <span class="text-slate-400 text-xs block">Token Name & Ticker</span>
+                            <strong class="text-white">Dayanium (DYN)</strong>
+                        </div>
+                        <div class="bg-[#071122] p-4 rounded-xl border border-teal-500/20">
+                            <span class="text-slate-400 text-xs block">Network Standard</span>
+                            <strong class="text-white">BNB Smart Chain (BEP-20)</strong>
+                        </div>
+                        <div class="bg-[#071122] p-4 rounded-xl border border-teal-500/20">
+                            <span class="text-slate-400 text-xs block">Primary DEX</span>
+                            <strong class="text-teal-300">PancakeSwap (DYN/WBNB)</strong>
+                        </div>
+                    </div>
+                    <p class="text-slate-200 text-sm leading-relaxed">
+                        <strong>Controlled Circulation Policy:</strong> Tokens earned across our 3 Telegram Mining Phases and major community events (including the 1,000,000 DYN Top-10 Leaderboard Giveaway) are unlocked and released into market circulation in structured, gradual batches. Each withdrawal request is verified manually prior to on-chain BEP-20 disbursement to prevent automated bot abuse and safeguard liquidity providers.
+                    </p>
+                </div>
+
+                <!-- 4. Strategic Roadmap (3 Mining Phases Until Mid-2027 + Major Events) -->
+                <div id="roadmap" class="border-b border-teal-500/15 pb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-teal-300 mb-2">4. Strategic Roadmap & Multi-Phase Mining (2026 – Mid-2027)</h3>
+                    <p class="text-xs text-slate-300 mb-5">Our mining ecosystem operates across three structured phases extending until mid-2027, featuring major community events, reward campaigns, and global exchange expansions.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-5 text-sm">
+                        <!-- Phase 1 -->
+                        <div class="bg-[#071122] p-5 rounded-2xl border-t-4 border-t-teal-400 border border-teal-500/20">
+                            <span class="text-xs font-bold text-teal-300 uppercase">Phase 1 — Live Now (2026)</span>
+                            <h4 class="font-bold text-white text-base mt-1 mb-2.5">Mining Phase 1 & DEX Launch</h4>
+                            <ul class="space-y-2 text-slate-200 text-xs">
+                                <li>✓ BEP-20 Contract & PancakeSwap Live</li>
+                                <li>✓ Mining Phase 1 Active on Telegram</li>
+                                <li>✓ Official Web Portal (`dayanium.com`)</li>
+                                <li>• First Major Community Event & 1M DYN Giveaway</li>
+                            </ul>
+                        </div>
+
+                        <!-- Phase 2 -->
+                        <div class="bg-[#071122] p-5 rounded-2xl border-t-4 border-t-cyan-400 border border-teal-500/20">
+                            <span class="text-xs font-bold text-cyan-300 uppercase">Phase 2 — Q1 2027</span>
+                            <h4 class="font-bold text-white text-base mt-1 mb-2.5">Mining Phase 2 & Major Events</h4>
+                            <ul class="space-y-2 text-slate-200 text-xs">
+                                <li>• Launch of Telegram Mining Phase 2</li>
+                                <li>• Mega Referral & Trading Tournaments</li>
+                                <li>• BscScan, CoinGecko & CMC Listings</li>
+                                <li>• Controlled Liquidity & Supply Expansion</li>
+                            </ul>
+                        </div>
+
+                        <!-- Phase 3 -->
+                        <div class="bg-[#071122] p-5 rounded-2xl border-t-4 border-t-slate-400 border border-teal-500/20">
+                            <span class="text-xs font-bold text-slate-300 uppercase">Phase 3 — Mid-2027</span>
+                            <h4 class="font-bold text-white text-base mt-1 mb-2.5">Mining Phase 3 & Global Scale</h4>
+                            <ul class="space-y-2 text-slate-200 text-xs">
+                                <li>• Final Telegram Mining Phase 3 (Until Mid-2027)</li>
+                                <li>• Grand Finale Community Reward Events</li>
+                                <li>• DeFi Staking & Ecosystem Utility Rollout</li>
+                                <li>• Tier-2 Centralized Exchange (CEX) Listings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Risk Disclaimer -->
+                <div>
+                    <h3 class="text-base font-bold text-slate-200 mb-2">5. Legal & Risk Disclaimer</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Cryptocurrency trading and digital asset participation involve market volatility and financial risk. Nothing in this Whitepaper or on <code class="text-slate-300">dayanium.com</code> constitutes financial, legal, or investment advice. Participants should always verify the official BEP-20 contract address (<code class="text-slate-300 break-all">0xdac720922a531574daC6D990e2cd1ff97883A294</code>) before executing transactions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- FOUNDER & TRANSPARENCY VERIFICATION SECTION (FOR BSCSCAN & INVESTORS) -->
+    <!-- ===================================================================== -->
+    <section id="founder" class="py-14 px-4 sm:px-6 lg:px-8 border-t border-teal-500/15">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-teal-400 font-bold text-xs uppercase tracking-widest">Transparency & Project Ownership</span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-white mt-2">Founder & Official Contact Verification</h2>
+                <p class="text-slate-300 text-sm mt-2 max-w-2xl mx-auto">
+                    Publicly verifiable leadership and official communication channels for BscScan verification, security audits, and investor relations.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-8 border border-teal-400/25">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5">
+                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-teal-400 to-cyan-500 p-[2px] shrink-0">
+                        <div class="w-full h-full bg-[#071020] rounded-[14px] flex items-center justify-center text-3xl font-display font-bold text-teal-300">
+                            AR
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-500/15 text-teal-300 text-[11px] font-bold mb-1.5">
+                            <i class="fa-solid fa-badge-check"></i> Verified Project Owner & Founder
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Asif Redoan</h3>
+                        <p class="text-sm text-teal-300 font-medium">Founder & Lead Administrator — Dayanium (DYN)</p>
+                        <p class="text-xs text-slate-300 mt-1"><i class="fa-solid fa-location-dot text-teal-400 mr-1"></i> Budapest, Hungary • Pannon Egyetem (University of Pannonia)</p>
+                        
+                        <div class="flex flex-wrap justify-center sm:justify-start gap-3 mt-4">
+                            <a href="https://www.linkedin.com/in/asif-redoan-b78155450" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 border border-sky-400/50 text-sky-300 text-xs font-bold flex items-center gap-2 transition">
+                                <i class="fa-brands fa-linkedin text-sm"></i> Official LinkedIn Profile
+                            </a>
+                            <a href="mailto:admindayanium@gmail.com" class="px-4 py-2 rounded-xl bg-[#0D1B33] hover:bg-[#132647] border border-teal-400/30 text-slate-100 text-xs font-bold flex items-center gap-2 transition">
+                                <i class="fa-solid fa-envelope text-teal-400"></i> admindayanium@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Official Social & Explorer Links Box -->
+                <div class="w-full md:w-auto bg-[#071020] border border-teal-500/25 rounded-2xl p-5 space-y-2.5 text-xs shrink-0">
+                    <p class="font-bold text-teal-300 uppercase tracking-wider text-[11px] mb-2">Official Ecosystem Links</p>
+                    <a href="https://dayanium.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between gap-6 text-slate-200 hover:text-teal-300 transition">
+                        <span><i class="fa-solid fa-globe text-teal-400 w-4"></i> Website:</span>
+                        <span class="font-mono">dayanium.com</span>
+                    </a>
+                    <a href="https://t.me/Dayaniumofficial" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between gap-6 text-slate-200 hover:text-teal-300 transition">
+                        <span><i class="fa-brands fa-telegram text-cyan-400 w-4"></i> Telegram:</span>
+                        <span class="font-mono">@Dayaniumofficial</span>
+                    </a>
+                    <a href="https://t.me/DayaniumOfficialBot/mine" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between gap-6 text-slate-200 hover:text-teal-300 transition">
+                        <span><i class="fa-solid fa-robot text-teal-400 w-4"></i> Mining App:</span>
+                        <span class="font-mono">@DayaniumOfficialBot</span>
+                    </a>
+                    <a href="https://x.com/dayaniumx" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between gap-6 text-slate-200 hover:text-teal-300 transition">
+                        <span><i class="fa-brands fa-x-twitter text-white w-4"></i> X (Twitter):</span>
+                        <span class="font-mono">@dayaniumx</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- FOOTER                                                                -->
+    <!-- ===================================================================== -->
+    <footer class="border-t border-teal-500/20 bg-[#040812] py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="font-display font-bold text-lg text-white">DAYANIUM <span class="text-teal-300">(DYN)</span></span>
+                <p class="text-xs text-slate-300 mt-1">Founded by Asif Redoan • Contact: <a href="mailto:admindayanium@gmail.com" class="text-teal-300 hover:underline">admindayanium@gmail.com</a></p>
+                <p class="text-[11px] text-slate-500 mt-1">© 2026 Dayanium Official. All rights reserved.</p>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="https://t.me/Dayaniumofficial" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-200 hover:text-cyan-400 transition" title="Telegram Channel">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+                <a href="https://t.me/DayaniumOfficialBot/mine" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-200 hover:text-teal-300 transition" title="Telegram Miner">
+                    <i class="fa-solid fa-hammer"></i>
+                </a>
+                <a href="https://x.com/dayaniumx" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-200 hover:text-white transition" title="X (Twitter)">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/asif-redoan-b78155450" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-200 hover:text-sky-400 transition" title="Founder LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://bscscan.com/token/0xdac720922a531574daC6D990e2cd1ff97883A294" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-200 hover:text-teal-300 transition" title="BscScan">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyText(text, message) {
+            const temp = document.createElement('input');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-8');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-8');
+            }, 2800);
+        }
+
+        // Fetch live DYN/WBNB price & market cap quietly without blocking UI
+        async function fetchDexMarketData() {
+            try {
+                const res = await fetch('https://api.dexscreener.com/latest/dex/pairs/bsc/0x38474d63c1e514c013d450a0eb08154dc30cbc97');
+                const data = await res.json();
+                if (data && data.pair) {
+                    const pair = data.pair;
+                    if (pair.priceUsd) {
+                        document.getElementById('live-price-usd').textContent = '$' + Number(pair.priceUsd).toFixed(8);
+                    } else {
+                        document.getElementById('live-price-usd').textContent = 'Live on DEX';
+                    }
+                    if (pair.fdv || pair.marketCap) {
+                        const mcap = pair.marketCap || pair.fdv;
+                        document.getElementById('live-mcap').textContent = '$' + Number(mcap).toLocaleString();
+                    }
+                } else {
+                    document.getElementById('live-price-usd').textContent = 'Live on DEX';
+                }
+            } catch (e) {
+                document.getElementById('live-price-usd').textContent = 'Live on DEX';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchDexMarketData();
+        });
+    </script>
+</body>
+</html>
